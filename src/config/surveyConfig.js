@@ -6,7 +6,7 @@ export const surveyConfig = {
   // Lab Information - Replace with your own
   logo: "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.dksr.city%2F&psig=AOvVaw33CZhlZizKDDLvmGiJQmml&ust=1750096809589000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCNjn4eaA9I0DFQAAAAAdAAAAABAE",
   logoPosition: "right",
-  //labDescription: "Diese Forschung wird vom City Intelligence Team der Data Competence Center for Cities and Regions (DKSR) durchgeführt.",
+  labDescription: "Diese Forschung wird vom City Intelligence Team der Data Competence Center for Cities and Regions (DKSR) durchgeführt.",
   
   // Survey Settings
   settings: {
