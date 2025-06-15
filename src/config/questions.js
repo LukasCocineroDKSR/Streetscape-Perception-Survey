@@ -105,7 +105,7 @@ const pairwisePerceptionPage = {
   elements: perceptionIndicators.map(({ key, label }) => ({
     type: "imagepicker",
     name: `${key}_perception`, // bleibt gleich, damit displayedImages[] funktioniert
-    title: `${label.charAt(0).toUpperCase() + label.slice(1)}-Wahrnehmung`,
+    title: `${label.charAt(0).toUpperCase() + label.slice(1)}`,
     description: `Welche Straße wirkt auf Sie besonders ${label}?`,
     isRequired: true,
     choices: displayedImages[`${key}_perception`],
