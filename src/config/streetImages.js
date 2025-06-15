@@ -11,7 +11,7 @@
 
 // 🔧 STEP 1: Replace with YOUR Supabase project URL
 // Example format: https://YOUR-PROJECT-ID.supabase.co/storage/v1/object/public/street-images
-const SUPABASE_STORAGE_URL = "https://dkeftpvjamrepzpmhbic.supabase.co";
+const SUPABASE_STORAGE_URL = "https://dkeftpvjamrepzpmhbic.supabase.co/storage/v1/object/public/street-images/";
 
 // 🔧 STEP 2: Replace with YOUR actual uploaded image filenames
 // Example filenames shown below - replace with your own image names
