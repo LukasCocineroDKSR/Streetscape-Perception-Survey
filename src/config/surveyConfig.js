@@ -1,6 +1,6 @@
 export const surveyConfig = {
   // Basic Information
-  title: "Urban Streetscape Perception Survey",
+  title: "Umfrage - Maschinelles Lernen menschlicher Sichtweisen",
   description: "Hallo! Wir vom City Intelligence Team bei DKSR untersuchen derzeit, wie Menschen gebaute Straßenräume wahrnehmen. Diese Daten helfen uns, Orte zu identifizieren, die als angenehm oder unangenehm, sicher oder unsicher empfunden werden – zum Beispiel sogenannte Angsträume oder Orte mit wenig Aufenthaltsqualität. Ziel ist es, urbane Räume besser zu gestalten, sodass sie sich für alle Menschen gut anfühlen. Die Umfrage dauert etwa 15 Minuten und basiert auf Straßenbildern, die Sie visuell beurteilen. Ihre Teilnahme unterstützt eine menschzentrierte Stadtplanung.",
   
   // Lab Information - Replace with your own
