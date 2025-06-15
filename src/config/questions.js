@@ -147,11 +147,11 @@ const likertPerceptionPage = {
         { value: "shading_area", text: "Beschattete Bereiche (z. B. durch Bäume, Vordächer)" },
         { value: "sun_intensity", text: "Sonneneinstrahlung" },
         { value: "traffic_flow", text: "Verkehrsaufkommen oder -fluss" },
-        { value: "material_comfort", text: "Bodenbeschaffenheit und -komfort (z. B. Pflasterung)" },
-        { value: "enclosure", text: "Raumgefühl – Wie geschlossen wirkt der Raum? (z. B. eng stehende Gebäude)" },
+        { value: "material_comfort", text: "Materialkomfort – Wie angenehm wirken die verwendeten Materialien für Gehen, Sitzen oder Aufenthalt?" },
+        { value: "enclosure", text: "Raumgefühl – Wird der Straßenraum klar begrenzt (z. B. durch Hausfassaden, Mauern, Baumreihen)?" },
         { value: "imageability", text: "Einprägsamkeit – Wie markant oder wiedererkennbar ist der Ort?" },
-        { value: "human_scale", text: "Maßstab – Wirken Gebäude und Straßen menschenfreundlich skaliert?" },
-        { value: "transparency", text: "Transparenz – Wie gut ist die Sicht durch und um Gebäude herum?" },
+        { value: "human_scale", text: "Menschlicher Maßstab – Sind Gebäude und Straßen in einer für Menschen angenehmen Größe gestaltet?" },
+        { value: "transparency", text: "Transparenz – Wie offen und einsehbar ist die Straße oder Umgebung?" },
         { value: "complexity", text: "Komplexität – Wie vielfältig und detailreich wirkt das Bild?" }
       ]
     }
@@ -162,7 +162,7 @@ const likertPerceptionPage = {
 export const surveyPages = [
   {
     name: "demographics",
-    title: "Teil 1: Hintergrundinformationen (optional)",
+    title: "Teil 1: Hintergrundinformationen (otional)",
     description: "Bitte erzählen Sie uns etwas über sich. Alle Fragen sind freiwillig.",
     elements: demographicQuestions
   },
