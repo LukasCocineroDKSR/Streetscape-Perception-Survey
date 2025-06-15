@@ -89,20 +89,26 @@ export const demographicQuestions = [
   }
 ];
 
-// Paarweise Wahrnehmungsfragen (Teil 2)
+const perceptionIndicators = [
+  { key: "beautiful", label: "schön" },
+  { key: "boring", label: "langweilig" },
+  { key: "lively", label: "lebendig" },
+  { key: "safe", label: "sicher" },
+  { key: "wealthy", label: "wohlhabend" },
+  { key: "depressing", label: "deprimierend" }
+];
+
 const pairwisePerceptionPage = {
   name: "pairwise_perception",
   title: "Teil 2: Wahrnehmungsvergleiche",
-  description: "Wählen Sie die Straße, die am besten zu jeder Beschreibung passt.",
-  elements: [
-    "schöner", "langweiliger", "lebenswerter", "sicherer", "wohlhabender", "depremierender"
-  ].map((indicator) => ({
+  description: "Wählen Sie jeweils das Bild aus, das am besten zur Beschreibung passt.",
+  elements: perceptionIndicators.map(({ key, label }) => ({
     type: "imagepicker",
-    name: `${indicator}_perception`,
-    title: `${indicator.charAt(0).toUpperCase() + indicator.slice(1)}-Wahrnehmung`,
-    description: `Welche Straße wirkt auf Sie ${indicator.toUpperCase()}?`,
+    name: `${key}_perception`, // bleibt gleich, damit displayedImages[] funktioniert
+    title: `${label.charAt(0).toUpperCase() + label.slice(1)}-Wahrnehmung`,
+    description: `Welche Straße wirkt auf Sie besonders ${label}?`,
     isRequired: true,
-    choices: displayedImages[`${indicator}_perception`],
+    choices: displayedImages[`${key}_perception`],
     imageFit: "cover",
     imageHeight: "220px",
     imageWidth: "auto",
