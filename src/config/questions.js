@@ -54,7 +54,8 @@ export const demographicQuestions = [
       "€25,000 - €50,000",
       "€50,000 - €75,000",
       "€75,000 - €100,000",
-      "Over €100,000"
+      "Over €100,000",
+      "Prefer not to say"
     ],
     isRequired: false
   },
@@ -103,7 +104,9 @@ const pairwisePerceptionPage = {
     isRequired: true,
     choices: displayedImages[`${indicator}_perception`],
     imageFit: "cover",
-    multiSelect: false
+    imageHeight: "220px",
+    imageWidth: "auto",
+    contentMode: "image"
   }))
 };
 
@@ -111,14 +114,14 @@ const pairwisePerceptionPage = {
 const likertPerceptionPage = {
   name: "likert_perception",
   title: "Part 3: Comfort Ratings",
-  description: "Rate the following aspects of the street scene.",
+  description: "Rate the following aspects of the street scene. For some terms, we include a short explanation.",
   elements: [
     {
       type: "image",
       name: "likert_image",
       imageLink: displayedImages.comfort_rating[0]?.imageLink,
-      imageFit: "cover",
-      imageHeight: "300px",
+      imageFit: "contain",
+      imageHeight: "220px",
       imageWidth: "100%"
     },
     {
@@ -139,11 +142,11 @@ const likertPerceptionPage = {
         { value: "sun_intensity", text: "Sunlight exposure" },
         { value: "traffic_flow", text: "Traffic activity or flow" },
         { value: "material_comfort", text: "Comfort of surface materials (pavement, ground)" },
-        { value: "enclosure", text: "How enclosed the space feels" },
-        { value: "imageability", text: "How memorable the place is" },
-        { value: "human_scale", text: "Human-scale design (building size vs people)" },
-        { value: "transparency", text: "Visibility of surroundings or behind structures" },
-        { value: "complexity", text: "Visual richness and complexity" }
+        { value: "enclosure", text: "Enclosure – How enclosed the space feels (e.g., buildings close together)" },
+        { value: "imageability", text: "Imageability – How memorable or distinctive the place is" },
+        { value: "human_scale", text: "Human Scale – Are buildings and spaces scaled for people (not cars)?" },
+        { value: "transparency", text: "Transparency – Visibility through and around buildings or structures" },
+        { value: "complexity", text: "Complexity – Visual richness, variety, and amount of detail" }
       ]
     }
   ]
