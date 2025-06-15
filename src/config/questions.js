@@ -56,7 +56,7 @@ export const demographicQuestions = [
   }
 ];
 
-// === Wahrnehmungsindikatoren ===
+// === Wahrnehmungsindikatoren (pairwise)
 const perceptionIndicators = [
   { key: "beautiful", label: "schön" },
   { key: "boring", label: "langweilig" },
@@ -69,19 +69,33 @@ const perceptionIndicators = [
 // === Teil 2: 3× Paarvergleiche ===
 const pairwisePages = [1, 2, 3].map((i) => ({
   name: `pairwise_perception_${i}`,
-  title: `Teil 2.${i}: Wahrnehmungsvergleiche`,
+  title: `Teil 2.${i}: Emotionale Wahrnehmung`,
   description: "Wählen Sie jeweils das Bild aus, das am besten zur Beschreibung passt.",
   elements: perceptionIndicators.map(({ key, label }) => ({
     type: "imagepicker",
     name: `${key}_perception_${i}`,
     title: `${label.charAt(0).toUpperCase() + label.slice(1)}`,
-    description: `Welche Straße wirkt auf Sie besonders ${label}?`,
+    description: `Welche Straße wirkt auf Sie eher ${label}?`,
     isRequired: true,
     choices: displayedImages[`${key}_perception_${i}`],
     imageFit: "cover",
     imageHeight: "220px"
   }))
 }));
+
+// === Likert-Indikatoren ===
+const likertIndicators = [
+  { value: "greenery_rate", text: "Begrünung (Bäume, Pflanzen, Vegetation)" },
+  { value: "shading_area", text: "Beschattung (z. B. durch Bäume oder Überdachungen)" },
+  { value: "sun_intensity", text: "Sonneneinstrahlung" },
+  { value: "traffic_flow", text: "Verkehrsaufkommen" },
+  { value: "material_comfort", text: "Materialkomfort – Wie angenehm wirken die Oberflächen für Aufenthalt oder Bewegung?" },
+  { value: "enclosure", text: "Raumgefühl – Wirkt der Straßenraum klar begrenzt (z. B. durch Fassaden oder Bäume)?" },
+  { value: "imageability", text: "Einprägsamkeit – Wie wiedererkennbar und markant wirkt der Ort?" },
+  { value: "human_scale", text: "Menschlicher Maßstab – Sind Gebäude und Straßen an menschliche Proportionen angepasst?" },
+  { value: "transparency", text: "Sichtweite – Wie weit und offen ist der Blick entlang der Straße?" },
+  { value: "complexity", text: "Komplexität – Wie detailreich und abwechslungsreich wirkt die Umgebung?" }
+];
 
 // === Teil 3: 3× Likert-Bewertungen ===
 const likertPages = [1, 2, 3].map((i) => ({
@@ -108,23 +122,12 @@ const likertPages = [1, 2, 3].map((i) => ({
         { value: 4, text: "Hoch" },
         { value: 5, text: "Sehr hoch" }
       ],
-      rows: [
-        { value: "greenery_rate", text: "Begrünung (Bäume, Pflanzen, Vegetation)" },
-        { value: "shading_area", text: "Beschattung (z. B. durch Bäume oder Überdachungen)" },
-        { value: "sun_intensity", text: "Sonneneinstrahlung" },
-        { value: "traffic_flow", text: "Verkehrsaufkommen" },
-        { value: "material_comfort", text: "Materialkomfort – Wie angenehm wirken die Oberflächen für Aufenthalt oder Bewegung?" },
-        { value: "enclosure", text: "Raumgefühl – Wirkt der Straßenraum klar begrenzt (z. B. durch Fassaden oder Bäume)?" },
-        { value: "imageability", text: "Einprägsamkeit – Wie wiedererkennbar und markant wirkt der Ort?" },
-        { value: "human_scale", text: "Menschlicher Maßstab – Sind Gebäude und Straßen an menschliche Proportionen angepasst?" },
-        { value: "transparency", text: "Sichtweite – Wie weit und offen ist der Blick entlang der Straße?" },
-        { value: "complexity", text: "Komplexität – Wie detailreich und abwechslungsreich wirkt die Umgebung?" }
-      ]
+      rows: likertIndicators
     }
   ]
 }));
 
-// === Survey-Pages kombinieren ===
+// === Survey-Seiten kombinieren ===
 export const surveyPages = [
   {
     name: "demographics",
@@ -136,7 +139,7 @@ export const surveyPages = [
   ...likertPages
 ];
 
-// === Finale Survey-Konfiguration ===
+// === Export der Umfrage-Definition ===
 export const surveyJson = {
   title: "Umfrage zur thermischen Wahrnehmung im Stadtraum",
   description: "Helfen Sie uns zu verstehen, wie Menschen Komfort und Gestaltung im Stadtraum wahrnehmen.",
