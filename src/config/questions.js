@@ -1,11 +1,11 @@
-// Full Survey Configuration with Demographics + Perceptions
+// Vollständige Umfragekonfiguration mit Demografie + Wahrnehmung
 
 import { getRandomImages } from './streetImages.js';
 
-// Generate Images for Each Question
+// Bilder für jede Frage generieren
 const generateQuestionImages = () => {
   const questionImages = {
-    // Pairwise comparisons
+    // Paarweise Vergleiche
     beautiful_perception: getRandomImages("beautiful_perception", 2),
     boring_perception: getRandomImages("boring_perception", 2),
     lively_perception: getRandomImages("lively_perception", 2),
@@ -13,7 +13,7 @@ const generateQuestionImages = () => {
     wealthy_perception: getRandomImages("wealthy_perception", 2),
     depressing_perception: getRandomImages("depressing_perception", 2),
 
-    // Likert block (one image, many ratings)
+    // Likert-Block (ein Bild, mehrere Bewertungen)
     comfort_rating: getRandomImages("comfort_rating", 1)
   };
 
@@ -22,85 +22,85 @@ const generateQuestionImages = () => {
 
 export const displayedImages = generateQuestionImages();
 
-// Demographic Questions
+// Demografische Fragen
 export const demographicQuestions = [
   {
     name: "age",
-    title: "What is your age group?",
+    title: "Wie alt sind Sie?",
     type: "radiogroup",
     choices: [
-      "Under 18",
-      "18-24",
-      "25-34",
-      "35-44",
-      "45-54",
-      "55-64",
-      "65 or older"
+      "Unter 18",
+      "18–24",
+      "25–34",
+      "35–44",
+      "45–54",
+      "55–64",
+      "65 oder älter"
     ],
     isRequired: false
   },
   {
     name: "location",
-    title: "Where are you from? (City, Country)",
+    title: "Woher kommen Sie? (Stadt, Land)",
     type: "text",
     isRequired: false
   },
   {
     name: "income",
-    title: "What is your household income level?",
+    title: "Wie hoch ist Ihr Haushaltsnettoeinkommen?",
     type: "radiogroup",
     choices: [
-      "Under €25,000",
-      "€25,000 - €50,000",
-      "€50,000 - €75,000",
-      "€75,000 - €100,000",
-      "Over €100,000",
-      "Prefer not to say"
+      "Unter 25.000 €",
+      "25.000 € – 50.000 €",
+      "50.000 € – 75.000 €",
+      "75.000 € – 100.000 €",
+      "Über 100.000 €",
+      "Keine Angabe"
     ],
     isRequired: false
   },
   {
     name: "education",
-    title: "What is your highest level of education?",
+    title: "Was ist Ihr höchster Bildungsabschluss?",
     type: "radiogroup",
     choices: [
-      "High school or less",
-      "Some college",
-      "Bachelor's degree",
-      "Master's degree",
-      "Doctoral degree",
-      "Other"
+      "Haupt-/Realschule oder weniger",
+      "Einige Jahre Studium (kein Abschluss)",
+      "Bachelorabschluss",
+      "Masterabschluss",
+      "Promotion/PhD",
+      "Sonstiges"
     ],
     isRequired: false
   },
   {
     name: "outdoor_activity",
-    title: "How often do you engage in outdoor activities?",
+    title: "Wie oft sind Sie draußen (z. B. zu Fuß, Radfahren, Spazierengehen)?",
     type: "radiogroup",
     choices: [
-      "Daily",
-      "Several times a week",
-      "Once a week",
-      "Several times a month",
-      "Rarely",
-      "Never"
+      "Täglich",
+      "Mehrmals pro Woche",
+      "Einmal pro Woche",
+      "Mehrmals im Monat",
+      "Selten",
+      "Nie"
     ],
     isRequired: false
   }
 ];
 
-// Pairwise Perception Questions (Part 2)
+// Paarweise Wahrnehmungsfragen (Teil 2)
 const pairwisePerceptionPage = {
   name: "pairwise_perception",
-  title: "Part 2: Perception Preferences",
-  description: "Choose the street environment that best represents each perception.",
+  title: "Teil 2: Wahrnehmungsvergleiche",
+  description: "Wählen Sie die Straße, die am besten zu jeder Beschreibung passt.",
   elements: [
     "beautiful", "boring", "lively", "safe", "wealthy", "depressing"
   ].map((indicator) => ({
     type: "imagepicker",
     name: `${indicator}_perception`,
-    title: `${indicator.charAt(0).toUpperCase() + indicator.slice(1)} Perception`,
-    description: `Which street looks more ${indicator.toUpperCase()}?`,
+    title: `${indicator.charAt(0).toUpperCase() + indicator.slice(1)}-Wahrnehmung`,
+    description: `Welche Straße wirkt auf Sie ${indicator.toUpperCase()}?`,
     isRequired: true,
     choices: displayedImages[`${indicator}_perception`],
     imageFit: "cover",
@@ -110,11 +110,11 @@ const pairwisePerceptionPage = {
   }))
 };
 
-// Likert Perception Ratings (Part 3)
+// Likert-Bewertungen (Teil 3)
 const likertPerceptionPage = {
   name: "likert_perception",
-  title: "Part 3: Comfort Ratings",
-  description: "Rate the following aspects of the street scene. For some terms, we include a short explanation.",
+  title: "Teil 3: Komfortbewertungen",
+  description: "Bewerten Sie die folgenden Aspekte der gezeigten Straße. Einige Begriffe werden kurz erklärt.",
   elements: [
     {
       type: "image",
@@ -127,47 +127,47 @@ const likertPerceptionPage = {
     {
       type: "matrix",
       name: "likert_indicators",
-      title: "Please rate each aspect on a scale of 1 to 5",
+      title: "Bitte bewerten Sie jeden Aspekt auf einer Skala von 1 (sehr niedrig) bis 5 (sehr hoch)",
       isRequired: true,
       columns: [
-        { value: 1, text: "Very Low" },
-        { value: 2, text: "Low" },
-        { value: 3, text: "Medium" },
-        { value: 4, text: "High" },
-        { value: 5, text: "Very High" }
+        { value: 1, text: "Sehr niedrig" },
+        { value: 2, text: "Niedrig" },
+        { value: 3, text: "Mittel" },
+        { value: 4, text: "Hoch" },
+        { value: 5, text: "Sehr hoch" }
       ],
       rows: [
-        { value: "greenery_rate", text: "Greenery (trees, plants, vegetation)" },
-        { value: "shading_area", text: "Shaded areas (awnings, trees, etc.)" },
-        { value: "sun_intensity", text: "Sunlight exposure" },
-        { value: "traffic_flow", text: "Traffic activity or flow" },
-        { value: "material_comfort", text: "Comfort of surface materials (pavement, ground)" },
-        { value: "enclosure", text: "Enclosure – How enclosed the space feels (e.g., buildings close together)" },
-        { value: "imageability", text: "Imageability – How memorable or distinctive the place is" },
-        { value: "human_scale", text: "Human Scale – Are buildings and spaces scaled for people (not cars)?" },
-        { value: "transparency", text: "Transparency – Visibility through and around buildings or structures" },
-        { value: "complexity", text: "Complexity – Visual richness, variety, and amount of detail" }
+        { value: "greenery_rate", text: "Begrünung (Bäume, Pflanzen, Vegetation)" },
+        { value: "shading_area", text: "Beschattete Bereiche (z. B. durch Bäume, Vordächer)" },
+        { value: "sun_intensity", text: "Sonneneinstrahlung" },
+        { value: "traffic_flow", text: "Verkehrsaufkommen oder -fluss" },
+        { value: "material_comfort", text: "Bodenbeschaffenheit und -komfort (z. B. Pflasterung)" },
+        { value: "enclosure", text: "Raumgefühl – Wie geschlossen wirkt der Raum? (z. B. eng stehende Gebäude)" },
+        { value: "imageability", text: "Einprägsamkeit – Wie markant oder wiedererkennbar ist der Ort?" },
+        { value: "human_scale", text: "Maßstab – Wirken Gebäude und Straßen menschenfreundlich skaliert?" },
+        { value: "transparency", text: "Transparenz – Wie gut ist die Sicht durch und um Gebäude herum?" },
+        { value: "complexity", text: "Komplexität – Wie vielfältig und detailreich wirkt das Bild?" }
       ]
     }
   ]
 };
 
-// Combine All Survey Pages
+// Umfrageseiten kombinieren
 export const surveyPages = [
   {
     name: "demographics",
-    title: "Part 1: Background Information (Optional)",
-    description: "Please tell us a bit about yourself. All questions are optional.",
+    title: "Teil 1: Hintergrundinformationen (optional)",
+    description: "Bitte erzählen Sie uns etwas über sich. Alle Fragen sind freiwillig.",
     elements: demographicQuestions
   },
   pairwisePerceptionPage,
   likertPerceptionPage
 ];
 
-// Export Final Survey Structure
+// Export der finalen Umfragelogik
 export const surveyJson = {
-  title: "Urban Thermal Perception Survey",
-  description: "Help us understand how people perceive comfort and design in city streets.",
+  title: "Umfrage zur thermischen Wahrnehmung im Stadtraum",
+  description: "Helfen Sie uns zu verstehen, wie Menschen Komfort und Gestaltung im Stadtraum wahrnehmen.",
   pages: surveyPages,
   showQuestionNumbers: "off",
   showProgressBar: "top",

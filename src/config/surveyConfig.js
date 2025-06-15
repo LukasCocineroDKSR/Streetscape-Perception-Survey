@@ -1,12 +1,12 @@
 export const surveyConfig = {
   // Basic Information
   title: "Urban Streetscape Perception Survey",
-  description: "Hello! Here at the Urban Analytics Lab at the National University of Singapore, we are currently conducting an online perception survey that will take approximately 15 minutes to complete and consists of around 50 questions regarding photos taken at the street-level. Such a survey will help us understand what drives people's perception and how to design spaces that are visually appealing. Throughout the survey, participants' main task is to select the most suitable street view image among multiple images based on certain dimensions and personal impressions. As a token of appreciation, participants who successfully complete the full survey will receive a compensation fee of SGD 5.",
+  description: "Hallo! Wir vom City Intelligence Team bei DKSR untersuchen derzeit, wie Menschen gebaute Straßenräume wahrnehmen. Diese Daten helfen uns, Orte zu identifizieren, die als angenehm oder unangenehm, sicher oder unsicher empfunden werden – zum Beispiel sogenannte Angsträume oder Orte mit wenig Aufenthaltsqualität. Ziel ist es, urbane Räume besser zu gestalten, sodass sie sich für alle Menschen gut anfühlen. Die Umfrage dauert etwa 15 Minuten und basiert auf Straßenbildern, die Sie visuell beurteilen. Ihre Teilnahme unterstützt eine menschzentrierte Stadtplanung.",
   
   // Lab Information - Replace with your own
-  logo: "https://api.surveyjs.io/private/Surveys/files?name=8fb3943d-2606-4486-88ad-a41ad27f4570",
+  logo: "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.dksr.city%2F&psig=AOvVaw33CZhlZizKDDLvmGiJQmml&ust=1750096809589000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCNjn4eaA9I0DFQAAAAAdAAAAABAE",
   logoPosition: "right",
-  labDescription: "This research is conducted by Urban Analytics Lab at the National University of Singapore.",
+  //labDescription: "Diese Forschung wird vom City Intelligence Team der Data Competence Center for Cities and Regions (DKSR) durchgeführt.",
   
   // Survey Settings
   settings: {
