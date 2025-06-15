@@ -95,7 +95,7 @@ const pairwisePerceptionPage = {
   title: "Teil 2: Wahrnehmungsvergleiche",
   description: "Wählen Sie die Straße, die am besten zu jeder Beschreibung passt.",
   elements: [
-    "beautiful", "boring", "lively", "safe", "wealthy", "depressing"
+    "schöner", "langweiliger", "lebenswerter", "sicherer", "wohlhabender", "depremierender"
   ].map((indicator) => ({
     type: "imagepicker",
     name: `${indicator}_perception`,
