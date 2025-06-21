@@ -65,9 +65,9 @@ export const demographicQuestions = [
 
 // === Paarvergleichsfragen (je 20 pro Indikator) ===
 const pairwisePages = perceptionIndicators.flatMap(({ key, label }) =>
-  Array.from({ length: 20 }, (_, i) => ({
+  Array.from({ length: 10 }, (_, i) => ({
     name: `${key}_perception_${i + 1}`,
-    title: `Wahrnehmung: "${label.charAt(0).toUpperCase() + label.slice(1)}"`,
+    title: `Emotionale Wahrnehmung: "${label.charAt(0).toUpperCase() + label.slice(1)}"`,
     description: `Welches Bild wirkt eher ${label}?`,
     elements: [
       {
