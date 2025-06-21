@@ -73,7 +73,7 @@ const pairwisePages = perceptionIndicators.flatMap(({ key, label }) =>
       {
         type: "imagepicker",
         name: `${key}_perception_${i + 1}`,
-        isRequired: true,
+        isRequired: false,
         choices: displayedImages[`${key}_perception_${i + 1}`],
         imageFit: "cover",
         imageHeight: "220px"
@@ -98,7 +98,7 @@ export const surveyJson = {
   title: "Umfrage zur emotionalen Wahrnehmung von Straßenräumen",
   description: "Helfen Sie uns zu verstehen, wie Menschen Straßenumgebungen wahrnehmen.",
   pages: surveyPages,
-  showQuestionNumbers: "off",
+  showQuestionNumbers: "on",
   showProgressBar: "top",
   progressBarType: "pages",
   autoGrowComment: true,
