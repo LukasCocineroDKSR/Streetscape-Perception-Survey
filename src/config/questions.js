@@ -64,7 +64,7 @@ const beautifulPage = {
     ...Array.from({ length: 10 }, (_, i) => ({
       type: "imagepicker",
       name: `beautiful_comparison_${i + 1}`,
-      title: "",
+      title: " ",
       isRequired: false,
       choices: displayedImages[`beautiful_comparison_${i + 1}`],
       imageFit: "cover",
@@ -83,7 +83,7 @@ const boringPage = {
     ...Array.from({ length: 10 }, (_, i) => ({
       type: "imagepicker",
       name: `boring_comparison_${i + 1}`,
-      title: "",
+      title: " ",
       isRequired: false,
       choices: displayedImages[`boring_comparison_${i + 1}`],
       imageFit: "cover",
@@ -102,7 +102,7 @@ const depressingPage = {
     ...Array.from({ length: 10 }, (_, i) => ({
       type: "imagepicker",
       name: `depressing_comparison_${i + 1}`,
-      title: "",
+      title: " ",
       isRequired: false,
       choices: displayedImages[`depressing_comparison_${i + 1}`],
       imageFit: "cover",
@@ -121,7 +121,7 @@ const safePage = {
     ...Array.from({ length: 10 }, (_, i) => ({
       type: "imagepicker",
       name: `safe_comparison_${i + 1}`,
-      title: "",
+      title: " ",
       isRequired: false,
       choices: displayedImages[`safe_comparison_${i + 1}`],
       imageFit: "cover",
@@ -140,7 +140,7 @@ const wealthyPage = {
     ...Array.from({ length: 10 }, (_, i) => ({
       type: "imagepicker",
       name: `wealthy_comparison_${i + 1}`,
-      title: "",
+      title: " ",
       isRequired: false,
       choices: displayedImages[`wealthy_comparison_${i + 1}`],
       imageFit: "cover",
@@ -159,7 +159,7 @@ const livablePage = {
     ...Array.from({ length: 10 }, (_, i) => ({
       type: "imagepicker",
       name: `livable_comparison_${i + 1}`,
-      title: "",
+      title: " ",
       isRequired: false,
       choices: displayedImages[`livable_comparison_${i + 1}`],
       imageFit: "cover",
