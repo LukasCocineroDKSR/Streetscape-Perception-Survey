@@ -44,7 +44,7 @@ export const demographicQuestions = [
   },
   {
     name: "location",
-    title: "Woher kommen Sie? (Stadt, Land)",
+    title: "In welcher Stadt leben Sie?",
     type: "text",
     isRequired: false
   },
