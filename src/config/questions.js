@@ -79,7 +79,7 @@ const beautifulPage = {
     type: "imagepicker",
     name: `beautiful_comparison_${i + 1}`,
     title: "Welches Bild wirkt eher schön?",
-    isRequired: true,
+    isRequired: false,
     choices: displayedImages[`beautiful_comparison_${i + 1}`],
     imageFit: "cover",
     imageHeight: "220px"
@@ -94,7 +94,7 @@ const boringPage = {
     type: "imagepicker",
     name: `boring_comparison_${i + 1}`,
     title: "Welches Bild wirkt eher langweilig?",
-    isRequired: true,
+    isRequired: false,
     choices: displayedImages[`boring_comparison_${i + 1}`],
     imageFit: "cover",
     imageHeight: "220px"
@@ -109,7 +109,7 @@ const depressingPage = {
     type: "imagepicker",
     name: `depressing_comparison_${i + 1}`,
     title: "Welches Bild wirkt eher deprimierend?",
-    isRequired: true,
+    isRequired: false,
     choices: displayedImages[`depressing_comparison_${i + 1}`],
     imageFit: "cover",
     imageHeight: "220px"
@@ -124,7 +124,7 @@ const safePage = {
     type: "imagepicker",
     name: `safe_comparison_${i + 1}`,
     title: "Welches Bild wirkt eher sicher?",
-    isRequired: true,
+    isRequired: false,
     choices: displayedImages[`safe_comparison_${i + 1}`],
     imageFit: "cover",
     imageHeight: "220px"
@@ -139,7 +139,7 @@ const wealthyPage = {
     type: "imagepicker",
     name: `wealthy_comparison_${i + 1}`,
     title: "Welches Bild wirkt eher wohlhabend?",
-    isRequired: true,
+    isRequired: false,
     choices: displayedImages[`wealthy_comparison_${i + 1}`],
     imageFit: "cover",
     imageHeight: "220px"
@@ -154,7 +154,7 @@ const livablePage = {
     type: "imagepicker",
     name: `livable_comparison_${i + 1}`,
     title: "Welches Bild wirkt eher lebenswert?",
-    isRequired: true,
+    isRequired: false,
     choices: displayedImages[`livable_comparison_${i + 1}`],
     imageFit: "cover",
     imageHeight: "220px"
@@ -186,3 +186,20 @@ export const surveyJson = {
   autoGrowComment: true,
   showPreviewBeforeComplete: "noPreview"
 };
+
+// === Optional-Skip-Validation: Maximal 6 überspringbare Bildvergleiche ===
+export function attachSkipLimitValidation(survey) {
+  const maxSkipsAllowed = 6;
+
+  survey.onComplete.add((sender, options) => {
+    const skippedCount = Object.entries(sender.data).filter(
+      ([key, value]) => key.endsWith("_comparison_1") || key.includes("_comparison_") && !value
+    ).length;
+
+    if (skippedCount > maxSkipsAllowed) {
+      options.allowComplete = false;
+      alert(`Sie haben ${skippedCount} Bildvergleiche übersprungen. Bitte beantworten Sie mindestens ${120 - maxSkipsAllowed} der 120 Paare.`);
+    }
+  });
+}
+

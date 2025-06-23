@@ -10,7 +10,7 @@ export const surveyConfig = {
   
   // Survey Settings
   settings: {
-    showQuestionNumbers: "off",
+    showQuestionNumbers: "on",
     showProgressBar: "aboveheader",
     progressBarType: "questions",
     autoGrowComment: true,
