@@ -185,11 +185,25 @@ export const surveyPages = [
   livablePage
 ];
 
-// === Survey JSON export ===
 export const surveyJson = {
   title: "Umfrage zur Wahrnehmung von Straßenräumen",
   description: "Diese Umfrage hilft uns zu verstehen, wie Menschen verschiedene Straßenumgebungen wahrnehmen. Ihre Teilnahme unterstützt eine menschzentrierte Stadtplanung.",
-  pages: surveyPages,         // 🔧 Keine Nummerierung
+  
+  pages: surveyPages,
+
+  // ❌ Frage-Nummern ausschalten
+  showQuestionNumbers: false,
+
+  // ✅ Fortschrittsbalken oben anzeigen
   showProgressBar: "top",
-  progressBarType: "questions"               // 🔧 Optional: Abschlussseite anzeigen
+  progressBarType: "questions",
+
+  // ✅ Textfelder wachsen automatisch
+  autoGrowComment: true,
+
+  // ❌ Vorschau **komplett deaktivieren**
+  showPreviewBeforeComplete: "noPreview",
+
+  // ❌ Abschlussseite statt Vorschau
+  showCompletedPage: true
 };
