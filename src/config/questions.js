@@ -163,7 +163,7 @@ const livablePage = {
     choices: displayedImages[`livable_comparison_${i + 1}`],
     imageFit: "cover",
     imageHeight: "420px",
-    imageWidth: "100%"
+    imageWidth: "420px%"
   }))
 };
 
