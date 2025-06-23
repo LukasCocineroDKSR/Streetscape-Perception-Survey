@@ -19,8 +19,7 @@ export const surveyConfig = {
   
   // Contact Information - Replace with your own
   contact: {
-    email: "lukas.koch-ruchay@dksr.city",
-    website: "https://www.dksr.city/",
+    email: "lukaskochruchay@gmail.com"
   },
   
   // Privacy Policy
