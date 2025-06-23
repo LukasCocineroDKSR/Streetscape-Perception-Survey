@@ -58,7 +58,7 @@ export const demographicQuestions = [
 const beautifulPage = {
   name: "beautiful_page",
   title: "Indikator 1/6: Schön",
-  description: "Wählen Sie jeweils das Bild, das besser zur Beschreibung „Schön“ passt.",
+  description: "Wählen Sie jeweils das Bild, das besser zur Beschreibung „Schön“ passt. Sie können das Bild-Paar überspringen, wenn Sie keine Entscheidung treffen können.",
   elements: [
     { type: "expression", name: "beautiful_intro", title: "Welches Bild wirkt eher schön?" },
     ...Array.from({ length: 10 }, (_, i) => ({
@@ -77,7 +77,7 @@ const beautifulPage = {
 const boringPage = {
   name: "boring_page",
   title: "Indikator 2/6: Langweilig",
-  description: "Wählen Sie jeweils das Bild, das besser zur Beschreibung „Langweilig“ passt.",
+  description: "Wählen Sie jeweils das Bild, das besser zur Beschreibung „Langweilig“ passt. Sie können das Bild-Paar überspringen, wenn Sie keine Entscheidung treffen können.",
   elements: [
     { type: "expression", name: "boring_intro", title: "Welches Bild wirkt eher langweilig?" },
     ...Array.from({ length: 10 }, (_, i) => ({
@@ -96,7 +96,7 @@ const boringPage = {
 const depressingPage = {
   name: "depressing_page",
   title: "Indikator 3/6: Deprimierend",
-  description: "Wählen Sie jeweils das Bild, das besser zur Beschreibung „Deprimierend“ passt.",
+  description: "Wählen Sie jeweils das Bild, das besser zur Beschreibung „Deprimierend“ passt. Sie können das Bild-Paar überspringen, wenn Sie keine Entscheidung treffen können.",
   elements: [
     { type: "expression", name: "depressing_intro", title: "Welches Bild wirkt eher deprimierend?" },
     ...Array.from({ length: 10 }, (_, i) => ({
@@ -115,7 +115,7 @@ const depressingPage = {
 const safePage = {
   name: "safe_page",
   title: "Indikator 4/6: Sicher",
-  description: "Wählen Sie jeweils das Bild, das besser zur Beschreibung „Sicher“ passt.",
+  description: "Wählen Sie jeweils das Bild, das besser zur Beschreibung „Sicher“ passt. Sie können das Bild-Paar überspringen, wenn Sie keine Entscheidung treffen können.",
   elements: [
     { type: "expression", name: "safe_intro", title: "Welches Bild wirkt eher sicher?" },
     ...Array.from({ length: 10 }, (_, i) => ({
@@ -134,7 +134,7 @@ const safePage = {
 const wealthyPage = {
   name: "wealthy_page",
   title: "Indikator 5/6: Wohlhabend",
-  description: "Wählen Sie jeweils das Bild, das besser zur Beschreibung „Wohlhabend“ passt.",
+  description: "Wählen Sie jeweils das Bild, das besser zur Beschreibung „Wohlhabend“ passt. Sie können das Bild-Paar überspringen, wenn Sie keine Entscheidung treffen können.",
   elements: [
     { type: "expression", name: "wealthy_intro", title: "Welches Bild wirkt eher wohlhabend?" },
     ...Array.from({ length: 10 }, (_, i) => ({
@@ -153,7 +153,7 @@ const wealthyPage = {
 const livablePage = {
   name: "livable_page",
   title: "Indikator 6/6: Lebenswert",
-  description: "Wählen Sie jeweils das Bild, das besser zur Beschreibung „Lebenswert“ passt.",
+  description: "Wählen Sie jeweils das Bild, das besser zur Beschreibung „Lebenswert“ passt. Sie können das Bild-Paar überspringen, wenn Sie keine Entscheidung treffen können.",
   elements: [
     { type: "expression", name: "livable_intro", title: "Welches Bild wirkt eher lebenswert?" },
     ...Array.from({ length: 10 }, (_, i) => ({
