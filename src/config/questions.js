@@ -190,9 +190,10 @@ export const surveyJson = {
   title: "Umfrage zur Wahrnehmung von Straßenräumen",
   description: "Diese Umfrage hilft uns zu verstehen, wie Menschen verschiedene Straßenumgebungen wahrnehmen. Ihre Teilnahme unterstützt eine menschzentrierte Stadtplanung.",
   pages: surveyPages,
-  showQuestionNumbers: "off",
+  showQuestionNumbers: false,            // 🔧 Keine Nummerierung
   showProgressBar: "top",
   progressBarType: "questions",
   autoGrowComment: true,
-  showPreviewBeforeComplete: "noPreview"
+  showPreviewBeforeComplete: "no",       // 🔧 Kein Vorschau-Schritt
+  showCompletedPage: false                // 🔧 Optional: Abschlussseite anzeigen
 };
