@@ -1,6 +1,6 @@
+// 📸 Generate images for 6 indicators, 10 comparisons each
 import { getRandomImages } from './streetImages.js';
 
-// === Indikatoren ===
 const indicators = [
   { key: "beautiful", label: "Schön" },
   { key: "boring", label: "Langweilig" },
@@ -10,7 +10,6 @@ const indicators = [
   { key: "livable", label: "Lebenswert" }
 ];
 
-// === Image-Set Generierung ===
 const generateQuestionImages = () => {
   const questionImages = {};
   indicators.forEach(({ key }) => {
@@ -23,7 +22,7 @@ const generateQuestionImages = () => {
 
 export const displayedImages = generateQuestionImages();
 
-// === Demografische Fragen ===
+// === Demographic Questions ===
 export const demographicQuestions = [
   {
     name: "age",
@@ -38,7 +37,9 @@ export const demographicQuestions = [
     name: "gender",
     title: "Was ist Ihr Geschlecht?",
     type: "radiogroup",
-    choices: ["weiblich", "männlich", "divers"],
+    choices: [
+      "weiblich", "männlich", "divers"
+    ],
     isRequired: false
   },
   {
@@ -69,24 +70,17 @@ export const demographicQuestions = [
   }
 ];
 
-// === 6 Einzelne Vergleichs-Seiten ===
+// === Individual Indicator Pages ===
 const beautifulPage = {
   name: "beautiful_page",
   title: "Indikator 1/6: Schön",
-  description: "Wählen Sie jeweils das Bild, das besser zur Beschreibung „Schön“ passt.",
+  description: "Wählen Sie jeweils das Bild, das besser zur Beschreibung „Schön“ passt. Wenn Sie sich nicht entscheiden können, überspringen Sie den Vergleich.",
   elements: Array.from({ length: 10 }, (_, i) => ({
     type: "imagepicker",
     name: `beautiful_comparison_${i + 1}`,
     title: "Welches Bild wirkt eher schön?",
     isRequired: false,
-    choices: [
-      ...displayedImages[`beautiful_comparison_${i + 1}`],
-      {
-        value: "neutral",
-        imageLink: "images/neutral.png",
-        text: "Keine Entscheidung möglich"
-      }
-    ],
+    choices: displayedImages[`beautiful_comparison_${i + 1}`],
     imageFit: "cover",
     imageHeight: "220px"
   }))
@@ -95,20 +89,13 @@ const beautifulPage = {
 const boringPage = {
   name: "boring_page",
   title: "Indikator 2/6: Langweilig",
-  description: "Wählen Sie jeweils das Bild, das besser zur Beschreibung „Langweilig“ passt.",
+  description: "Wählen Sie jeweils das Bild, das besser zur Beschreibung „Langweilig“ passt. Wenn Sie sich nicht entscheiden können, überspringen Sie den Vergleich.",
   elements: Array.from({ length: 10 }, (_, i) => ({
     type: "imagepicker",
     name: `boring_comparison_${i + 1}`,
     title: "Welches Bild wirkt eher langweilig?",
     isRequired: false,
-    choices: [
-      ...displayedImages[`boring_comparison_${i + 1}`],
-      {
-        value: "neutral",
-        imageLink: "images/neutral.png",
-        text: "Keine Entscheidung möglich"
-      }
-    ],
+    choices: displayedImages[`boring_comparison_${i + 1}`],
     imageFit: "cover",
     imageHeight: "220px"
   }))
@@ -117,20 +104,13 @@ const boringPage = {
 const depressingPage = {
   name: "depressing_page",
   title: "Indikator 3/6: Deprimierend",
-  description: "Wählen Sie jeweils das Bild, das besser zur Beschreibung „Deprimierend“ passt.",
+  description: "Wählen Sie jeweils das Bild, das besser zur Beschreibung „Deprimierend“ passt. Wenn Sie sich nicht entscheiden können, überspringen Sie den Vergleich.",
   elements: Array.from({ length: 10 }, (_, i) => ({
     type: "imagepicker",
     name: `depressing_comparison_${i + 1}`,
     title: "Welches Bild wirkt eher deprimierend?",
     isRequired: false,
-    choices: [
-      ...displayedImages[`depressing_comparison_${i + 1}`],
-      {
-        value: "neutral",
-        imageLink: "images/neutral.png",
-        text: "Keine Entscheidung möglich"
-      }
-    ],
+    choices: displayedImages[`depressing_comparison_${i + 1}`],
     imageFit: "cover",
     imageHeight: "220px"
   }))
@@ -139,20 +119,13 @@ const depressingPage = {
 const safePage = {
   name: "safe_page",
   title: "Indikator 4/6: Sicher",
-  description: "Wählen Sie jeweils das Bild, das besser zur Beschreibung „Sicher“ passt.",
+  description: "Wählen Sie jeweils das Bild, das besser zur Beschreibung „Sicher“ passt. Wenn Sie sich nicht entscheiden können, überspringen Sie den Vergleich.",
   elements: Array.from({ length: 10 }, (_, i) => ({
     type: "imagepicker",
     name: `safe_comparison_${i + 1}`,
     title: "Welches Bild wirkt eher sicher?",
     isRequired: false,
-    choices: [
-      ...displayedImages[`safe_comparison_${i + 1}`],
-      {
-        value: "neutral",
-        imageLink: "images/neutral.png",
-        text: "Keine Entscheidung möglich"
-      }
-    ],
+    choices: displayedImages[`safe_comparison_${i + 1}`],
     imageFit: "cover",
     imageHeight: "220px"
   }))
@@ -161,20 +134,13 @@ const safePage = {
 const wealthyPage = {
   name: "wealthy_page",
   title: "Indikator 5/6: Wohlhabend",
-  description: "Wählen Sie jeweils das Bild, das besser zur Beschreibung „Wohlhabend“ passt.",
+  description: "Wählen Sie jeweils das Bild, das besser zur Beschreibung „Wohlhabend“ passt. Wenn Sie sich nicht entscheiden können, überspringen Sie den Vergleich.",
   elements: Array.from({ length: 10 }, (_, i) => ({
     type: "imagepicker",
     name: `wealthy_comparison_${i + 1}`,
     title: "Welches Bild wirkt eher wohlhabend?",
     isRequired: false,
-    choices: [
-      ...displayedImages[`wealthy_comparison_${i + 1}`],
-      {
-        value: "neutral",
-        imageLink: "images/neutral.png",
-        text: "Keine Entscheidung möglich"
-      }
-    ],
+    choices: displayedImages[`wealthy_comparison_${i + 1}`],
     imageFit: "cover",
     imageHeight: "220px"
   }))
@@ -183,26 +149,18 @@ const wealthyPage = {
 const livablePage = {
   name: "livable_page",
   title: "Indikator 6/6: Lebenswert",
-  description: "Wählen Sie jeweils das Bild, das besser zur Beschreibung „Lebenswert“ passt.",
+  description: "Wählen Sie jeweils das Bild, das besser zur Beschreibung „Lebenswert“ passt. Wenn Sie sich nicht entscheiden können, überspringen Sie den Vergleich.",
   elements: Array.from({ length: 10 }, (_, i) => ({
     type: "imagepicker",
     name: `livable_comparison_${i + 1}`,
     title: "Welches Bild wirkt eher lebenswert?",
     isRequired: false,
-    choices: [
-      ...displayedImages[`livable_comparison_${i + 1}`],
-      {
-        value: "neutral",
-        imageLink: "images/neutral.png",
-        text: "Keine Entscheidung möglich"
-      }
-    ],
+    choices: displayedImages[`livable_comparison_${i + 1}`],
     imageFit: "cover",
     imageHeight: "220px"
   }))
 };
 
-// === Survey Pages und JSON Struktur ===
 export const surveyPages = [
   {
     name: "demographics",
@@ -228,3 +186,20 @@ export const surveyJson = {
   autoGrowComment: true,
   showPreviewBeforeComplete: "noPreview"
 };
+
+// === Optional-Skip-Validation: Maximal 6 überspringbare Bildvergleiche ===
+export function attachSkipLimitValidation(survey) {
+  const maxSkipsAllowed = 6;
+
+  survey.onComplete.add((sender, options) => {
+    const skippedCount = Object.entries(sender.data).filter(
+      ([key, value]) => key.endsWith("_comparison_1") || key.includes("_comparison_") && !value
+    ).length;
+
+    if (skippedCount > maxSkipsAllowed) {
+      options.allowComplete = false;
+      alert(`Sie haben ${skippedCount} Bildvergleiche übersprungen. Bitte beantworten Sie mindestens ${120 - maxSkipsAllowed} der 120 Paare.`);
+    }
+  });
+}
+
