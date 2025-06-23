@@ -1,6 +1,6 @@
-// 📸 Generate images for 6 indicators, 10 comparisons each
 import { getRandomImages } from './streetImages.js';
 
+// === Indikatoren ===
 const indicators = [
   { key: "beautiful", label: "Schön" },
   { key: "boring", label: "Langweilig" },
@@ -10,6 +10,7 @@ const indicators = [
   { key: "livable", label: "Lebenswert" }
 ];
 
+// === Image-Set Generierung ===
 const generateQuestionImages = () => {
   const questionImages = {};
   indicators.forEach(({ key }) => {
@@ -22,7 +23,7 @@ const generateQuestionImages = () => {
 
 export const displayedImages = generateQuestionImages();
 
-// === Demographic Questions ===
+// === Demografische Fragen ===
 export const demographicQuestions = [
   {
     name: "age",
@@ -37,9 +38,7 @@ export const demographicQuestions = [
     name: "gender",
     title: "Was ist Ihr Geschlecht?",
     type: "radiogroup",
-    choices: [
-      "weiblich", "männlich", "divers"
-    ],
+    choices: ["weiblich", "männlich", "divers"],
     isRequired: false
   },
   {
@@ -70,7 +69,7 @@ export const demographicQuestions = [
   }
 ];
 
-// === Individual Indicator Pages ===
+// === 6 Einzelne Vergleichs-Seiten ===
 const beautifulPage = {
   name: "beautiful_page",
   title: "Indikator 1/6: Schön",
@@ -80,7 +79,14 @@ const beautifulPage = {
     name: `beautiful_comparison_${i + 1}`,
     title: "Welches Bild wirkt eher schön?",
     isRequired: false,
-    choices: displayedImages[`beautiful_comparison_${i + 1}`],
+    choices: [
+      ...displayedImages[`beautiful_comparison_${i + 1}`],
+      {
+        value: "neutral",
+        imageLink: "images/neutral.png",
+        text: "Keine Entscheidung möglich"
+      }
+    ],
     imageFit: "cover",
     imageHeight: "220px"
   }))
@@ -95,7 +101,14 @@ const boringPage = {
     name: `boring_comparison_${i + 1}`,
     title: "Welches Bild wirkt eher langweilig?",
     isRequired: false,
-    choices: displayedImages[`boring_comparison_${i + 1}`],
+    choices: [
+      ...displayedImages[`boring_comparison_${i + 1}`],
+      {
+        value: "neutral",
+        imageLink: "images/neutral.png",
+        text: "Keine Entscheidung möglich"
+      }
+    ],
     imageFit: "cover",
     imageHeight: "220px"
   }))
@@ -110,7 +123,14 @@ const depressingPage = {
     name: `depressing_comparison_${i + 1}`,
     title: "Welches Bild wirkt eher deprimierend?",
     isRequired: false,
-    choices: displayedImages[`depressing_comparison_${i + 1}`],
+    choices: [
+      ...displayedImages[`depressing_comparison_${i + 1}`],
+      {
+        value: "neutral",
+        imageLink: "images/neutral.png",
+        text: "Keine Entscheidung möglich"
+      }
+    ],
     imageFit: "cover",
     imageHeight: "220px"
   }))
@@ -125,7 +145,14 @@ const safePage = {
     name: `safe_comparison_${i + 1}`,
     title: "Welches Bild wirkt eher sicher?",
     isRequired: false,
-    choices: displayedImages[`safe_comparison_${i + 1}`],
+    choices: [
+      ...displayedImages[`safe_comparison_${i + 1}`],
+      {
+        value: "neutral",
+        imageLink: "images/neutral.png",
+        text: "Keine Entscheidung möglich"
+      }
+    ],
     imageFit: "cover",
     imageHeight: "220px"
   }))
@@ -140,7 +167,14 @@ const wealthyPage = {
     name: `wealthy_comparison_${i + 1}`,
     title: "Welches Bild wirkt eher wohlhabend?",
     isRequired: false,
-    choices: displayedImages[`wealthy_comparison_${i + 1}`],
+    choices: [
+      ...displayedImages[`wealthy_comparison_${i + 1}`],
+      {
+        value: "neutral",
+        imageLink: "images/neutral.png",
+        text: "Keine Entscheidung möglich"
+      }
+    ],
     imageFit: "cover",
     imageHeight: "220px"
   }))
@@ -155,12 +189,20 @@ const livablePage = {
     name: `livable_comparison_${i + 1}`,
     title: "Welches Bild wirkt eher lebenswert?",
     isRequired: false,
-    choices: displayedImages[`livable_comparison_${i + 1}`],
+    choices: [
+      ...displayedImages[`livable_comparison_${i + 1}`],
+      {
+        value: "neutral",
+        imageLink: "images/neutral.png",
+        text: "Keine Entscheidung möglich"
+      }
+    ],
     imageFit: "cover",
     imageHeight: "220px"
   }))
 };
 
+// === Survey Pages und JSON Struktur ===
 export const surveyPages = [
   {
     name: "demographics",
@@ -186,20 +228,3 @@ export const surveyJson = {
   autoGrowComment: true,
   showPreviewBeforeComplete: "noPreview"
 };
-
-// === Optional-Skip-Validation: Maximal 6 überspringbare Bildvergleiche ===
-export function attachSkipLimitValidation(survey) {
-  const maxSkipsAllowed = 6;
-
-  survey.onComplete.add((sender, options) => {
-    const skippedCount = Object.entries(sender.data).filter(
-      ([key, value]) => key.endsWith("_comparison_1") || key.includes("_comparison_") && !value
-    ).length;
-
-    if (skippedCount > maxSkipsAllowed) {
-      options.allowComplete = false;
-      alert(`Sie haben ${skippedCount} Bildvergleiche übersprungen. Bitte beantworten Sie mindestens ${120 - maxSkipsAllowed} der 120 Paare.`);
-    }
-  });
-}
-
