@@ -187,19 +187,5 @@ export const surveyJson = {
   showPreviewBeforeComplete: "noPreview"
 };
 
-// === Optional-Skip-Validation: Maximal 6 überspringbare Bildvergleiche ===
-export function attachSkipLimitValidation(survey) {
-  const maxSkipsAllowed = 6;
 
-  survey.onComplete.add((sender, options) => {
-    const skippedCount = Object.entries(sender.data).filter(
-      ([key, value]) => key.endsWith("_comparison_1") || key.includes("_comparison_") && !value
-    ).length;
-
-    if (skippedCount > maxSkipsAllowed) {
-      options.allowComplete = false;
-      alert(`Sie haben ${skippedCount} Bildvergleiche übersprungen. Bitte beantworten Sie mindestens ${120 - maxSkipsAllowed} der 120 Paare.`);
-    }
-  });
-}
 
