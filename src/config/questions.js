@@ -1,27 +1,11 @@
-// 📸 Generate images for 6 indicators, 10 comparisons each
 import { getRandomImages } from './streetImages.js';
-
-const indicators = [
-  { key: "beautiful", label: "Schön" },
-  { key: "boring", label: "Langweilig" },
-  { key: "depressing", label: "Deprimierend" },
-  { key: "safe", label: "Sicher" },
-  { key: "wealthy", label: "Wohlhabend" },
-  { key: "livable", label: "Lebenswert" }
-];
 
 const generateQuestionImages = () => {
   const questionImages = {};
-  indicators.forEach(({ key }) => {
+  const keys = ["beautiful", "boring", "depressing", "safe", "wealthy", "livable"];
+  keys.forEach((key) => {
     for (let i = 1; i <= 10; i++) {
-      questionImages[`${key}_comparison_${i}`] = [
-        ...getRandomImages(`${key}_comparison_${i}`, 2),
-        {
-          value: "neutral",
-          imageLink: "path/to/neutral.png",
-          text: "Keine Entscheidung möglich"
-        }
-      ];
+      questionImages[`${key}_comparison_${i}`] = getRandomImages(`${key}_comparison_${i}`, 2);
     }
   });
   return questionImages;
@@ -29,29 +13,24 @@ const generateQuestionImages = () => {
 
 export const displayedImages = generateQuestionImages();
 
-// === Demographic Questions ===
 export const demographicQuestions = [
   {
     name: "age",
     title: "Wie alt sind Sie?",
     type: "radiogroup",
-    choices: [
-      "Unter 18", "18–24", "25–34", "35–44", "45–54", "55–64", "65 oder älter"
-    ],
+    choices: ["Unter 18", "18–24", "25–34", "35–44", "45–54", "55–64", "65 oder älter"],
     isRequired: false
   },
   {
     name: "gender",
     title: "Was ist Ihr Geschlecht?",
     type: "radiogroup",
-    choices: [
-      "weiblich", "männlich", "divers"
-    ],
+    choices: ["weiblich", "männlich", "divers"],
     isRequired: false
   },
   {
     name: "location",
-    title: "Woher kommen Sie? (Stadt, Land)",
+    title: "In welcher Stadt leben Sie?",
     type: "text",
     isRequired: false
   },
@@ -59,10 +38,7 @@ export const demographicQuestions = [
     name: "income",
     title: "Wie hoch ist Ihr Haushaltsnettoeinkommen?",
     type: "radiogroup",
-    choices: [
-      "Unter 25.000 €", "25.000 € – 50.000 €", "50.000 € – 75.000 €",
-      "75.000 € – 100.000 €", "Über 100.000 €"
-    ],
+    choices: ["Unter 25.000 €", "25.000 € – 50.000 €", "50.000 € – 75.000 €", "75.000 € – 100.000 €", "Über 100.000 €"],
     isRequired: false
   },
   {
@@ -70,46 +46,130 @@ export const demographicQuestions = [
     title: "Was ist Ihr höchster Bildungsabschluss?",
     type: "radiogroup",
     choices: [
-      "Kein Schulabschluss", "Haupt-/Realschule", "Berufsausbildung",
+      "Kein Schulabschluss", "Haupt-/Realschule", "Abitur", "Berufsausbildung",
       "Bachelorabschluss", "Masterabschluss", "Promotion", "Sonstiges"
-    ],
-    isRequired: false
-  },
-  {
-    name: "outdoor_activity",
-    title: "Wie oft sind Sie draußen unterwegs?",
-    type: "radiogroup",
-    choices: [
-      "Täglich", "Mehrmals pro Woche", "Einmal pro Woche",
-      "Mehrmals im Monat", "Selten", "Nie"
     ],
     isRequired: false
   }
 ];
 
-// === Individual Indicator Pages ===
-const buildIndicatorPage = (key, label, index) => ({
-  name: `${key}_page`,
-  title: `Indikator ${index}/6: ${label}`,
-  description: `Wählen Sie jeweils das Bild, das besser zur Beschreibung „${label}“ passt.`,
-  elements: Array.from({ length: 10 }, (_, i) => ({
-    type: "imagepicker",
-    name: `${key}_comparison_${i + 1}`,
-    title: `Welches Bild wirkt eher ${label}?`,
-    isRequired: true,
-    choices: displayedImages[`${key}_comparison_${i + 1}`],
-    imageFit: "cover",
-    imageHeight: "220px"
-  }))
-});
+// === Einzelne Indikator-Seiten ===
 
-const beautifulPage = buildIndicatorPage("beautiful", "Schön", 1);
-const boringPage = buildIndicatorPage("boring", "Langweilig", 2);
-const depressingPage = buildIndicatorPage("depressing", "Deprimierend", 3);
-const safePage = buildIndicatorPage("safe", "Sicher", 4);
-const wealthyPage = buildIndicatorPage("wealthy", "Wohlhabend", 5);
-const livablePage = buildIndicatorPage("livable", "Lebenswert", 6);
+const beautifulPage = {
+  name: "beautiful_page",
+  title: "Indikator 1/6: Schön",
+  description: "Wählen Sie jeweils das Bild, das besser zur Beschreibung „Schön“ passt.",
+  elements: [
+    { type: "expression", name: "beautiful_intro", title: "Welches Bild wirkt eher schön?" },
+    ...Array.from({ length: 10 }, (_, i) => ({
+      type: "imagepicker",
+      name: ``,
+      title: "",
+      isRequired: false,
+      choices: displayedImages[`beautiful_comparison_${i + 1}`],
+      imageFit: "cover",
+      imageHeight: "300px",
+      imageWidth: "300px"
+    }))
+  ]
+};
 
+const boringPage = {
+  name: "boring_page",
+  title: "Indikator 2/6: Langweilig",
+  description: "Wählen Sie jeweils das Bild, das besser zur Beschreibung „Langweilig“ passt.",
+  elements: [
+    { type: "expression", name: "boring_intro", title: "Welches Bild wirkt eher langweilig?" },
+    ...Array.from({ length: 10 }, (_, i) => ({
+      type: "imagepicker",
+      name: `boring_comparison_${i + 1}`,
+      title: "",
+      isRequired: false,
+      choices: displayedImages[`boring_comparison_${i + 1}`],
+      imageFit: "cover",
+      imageHeight: "300px",
+      imageWidth: "300px"
+    }))
+  ]
+};
+
+const depressingPage = {
+  name: "depressing_page",
+  title: "Indikator 3/6: Deprimierend",
+  description: "Wählen Sie jeweils das Bild, das besser zur Beschreibung „Deprimierend“ passt.",
+  elements: [
+    { type: "expression", name: "depressing_intro", title: "Welches Bild wirkt eher deprimierend?" },
+    ...Array.from({ length: 10 }, (_, i) => ({
+      type: "imagepicker",
+      name: `depressing_comparison_${i + 1}`,
+      title: "",
+      isRequired: false,
+      choices: displayedImages[`depressing_comparison_${i + 1}`],
+      imageFit: "cover",
+      imageHeight: "300px",
+      imageWidth: "300px"
+    }))
+  ]
+};
+
+const safePage = {
+  name: "safe_page",
+  title: "Indikator 4/6: Sicher",
+  description: "Wählen Sie jeweils das Bild, das besser zur Beschreibung „Sicher“ passt.",
+  elements: [
+    { type: "expression", name: "safe_intro", title: "Welches Bild wirkt eher sicher?" },
+    ...Array.from({ length: 10 }, (_, i) => ({
+      type: "imagepicker",
+      name: `safe_comparison_${i + 1}`,
+      title: "",
+      isRequired: false,
+      choices: displayedImages[`safe_comparison_${i + 1}`],
+      imageFit: "cover",
+      imageHeight: "300px",
+      imageWidth: "300px"
+    }))
+  ]
+};
+
+const wealthyPage = {
+  name: "wealthy_page",
+  title: "Indikator 5/6: Wohlhabend",
+  description: "Wählen Sie jeweils das Bild, das besser zur Beschreibung „Wohlhabend“ passt.",
+  elements: [
+    { type: "expression", name: "wealthy_intro", title: "Welches Bild wirkt eher wohlhabend?" },
+    ...Array.from({ length: 10 }, (_, i) => ({
+      type: "imagepicker",
+      name: `wealthy_comparison_${i + 1}`,
+      title: "",
+      isRequired: false,
+      choices: displayedImages[`wealthy_comparison_${i + 1}`],
+      imageFit: "cover",
+      imageHeight: "300px",
+      imageWidth: "300px"
+    }))
+  ]
+};
+
+const livablePage = {
+  name: "livable_page",
+  title: "Indikator 6/6: Lebenswert",
+  description: "Wählen Sie jeweils das Bild, das besser zur Beschreibung „Lebenswert“ passt.",
+  elements: [
+    { type: "expression", name: "livable_intro", title: "Welches Bild wirkt eher lebenswert?" },
+    ...Array.from({ length: 10 }, (_, i) => ({
+      type: "imagepicker",
+      name: `livable_comparison_${i + 1}`,
+      title: "",
+      isRequired: false,
+      choices: displayedImages[`livable_comparison_${i + 1}`],
+      imageFit: "cover",
+      imageHeight: "300px",
+      imageWidth: "300px"
+    }))
+  ]
+};
+
+// === Alle Survey Pages zusammen ===
 export const surveyPages = [
   {
     name: "demographics",
@@ -125,6 +185,7 @@ export const surveyPages = [
   livablePage
 ];
 
+// === Survey JSON export ===
 export const surveyJson = {
   title: "Umfrage zur Wahrnehmung von Straßenräumen",
   description: "Diese Umfrage hilft uns zu verstehen, wie Menschen verschiedene Straßenumgebungen wahrnehmen. Ihre Teilnahme unterstützt eine menschzentrierte Stadtplanung.",
