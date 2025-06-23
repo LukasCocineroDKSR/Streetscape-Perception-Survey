@@ -83,7 +83,7 @@ const beautifulPage = {
     choices: displayedImages[`beautiful_comparison_${i + 1}`],
     imageFit: "cover",
     imageHeight: "300px",
-    imageWidth: "100%"
+    imageWidth: "300px"
   }))
 };
 
