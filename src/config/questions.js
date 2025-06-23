@@ -99,7 +99,7 @@ const boringPage = {
     choices: displayedImages[`boring_comparison_${i + 1}`],
     imageFit: "cover",
     imageHeight: "300px",
-    imageWidth: "100%"
+    imageWidth: "300px"
   }))
 };
 
@@ -115,7 +115,7 @@ const depressingPage = {
     choices: displayedImages[`depressing_comparison_${i + 1}`],
     imageFit: "cover",
     imageHeight: "300px",
-    imageWidth: "100%"
+    imageWidth: "300px"
   }))
 };
 
@@ -131,7 +131,7 @@ const safePage = {
     choices: displayedImages[`safe_comparison_${i + 1}`],
     imageFit: "cover",
     imageHeight: "300px",
-    imageWidth: "100%"
+    imageWidth: "300px"
   }))
 };
 
@@ -147,7 +147,7 @@ const wealthyPage = {
     choices: displayedImages[`wealthy_comparison_${i + 1}`],
     imageFit: "cover",
     imageHeight: "300px",
-    imageWidth: "100%"
+    imageWidth: "300px"
   }))
 };
 
@@ -163,7 +163,7 @@ const livablePage = {
     choices: displayedImages[`livable_comparison_${i + 1}`],
     imageFit: "cover",
     imageHeight: "300px",
-    imageWidth: "100%"
+    imageWidth: "300px"
   }))
 };
 
