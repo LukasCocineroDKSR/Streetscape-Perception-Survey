@@ -60,7 +60,7 @@ const beautifulPage = {
   title: "Indikator 1/6: Schön",
   description: "Wählen Sie jeweils das Bild, das besser zur Beschreibung „Schön“ passt. Sie können das Bild-Paar überspringen, wenn Sie keine Entscheidung treffen können.",
   elements: [
-    { type: "expression", name: "beautiful_intro", title: "Welches Bild wirkt eher schön?" },
+    { type: "expression", name: "beautiful_intro", title: "Welches Bild wirkt eher schön? Sie können das Bild-Paar überspringen, wenn Sie keine Entscheidung treffen können." },
     ...Array.from({ length: 10 }, (_, i) => ({
       type: "imagepicker",
       name: `beautiful_comparison_${i + 1}`,
@@ -79,7 +79,7 @@ const boringPage = {
   title: "Indikator 2/6: Langweilig",
   description: "Wählen Sie jeweils das Bild, das besser zur Beschreibung „Langweilig“ passt. Sie können das Bild-Paar überspringen, wenn Sie keine Entscheidung treffen können.",
   elements: [
-    { type: "expression", name: "boring_intro", title: "Welches Bild wirkt eher langweilig?" },
+    { type: "expression", name: "boring_intro", title: "Welches Bild wirkt eher langweilig? Sie können das Bild-Paar überspringen, wenn Sie keine Entscheidung treffen können." },
     ...Array.from({ length: 10 }, (_, i) => ({
       type: "imagepicker",
       name: `boring_comparison_${i + 1}`,
@@ -98,7 +98,7 @@ const depressingPage = {
   title: "Indikator 3/6: Deprimierend",
   description: "Wählen Sie jeweils das Bild, das besser zur Beschreibung „Deprimierend“ passt. Sie können das Bild-Paar überspringen, wenn Sie keine Entscheidung treffen können.",
   elements: [
-    { type: "expression", name: "depressing_intro", title: "Welches Bild wirkt eher deprimierend?" },
+    { type: "expression", name: "depressing_intro", title: "Welches Bild wirkt eher deprimierend? Sie können das Bild-Paar überspringen, wenn Sie keine Entscheidung treffen können." },
     ...Array.from({ length: 10 }, (_, i) => ({
       type: "imagepicker",
       name: `depressing_comparison_${i + 1}`,
@@ -117,7 +117,7 @@ const safePage = {
   title: "Indikator 4/6: Sicher",
   description: "Wählen Sie jeweils das Bild, das besser zur Beschreibung „Sicher“ passt. Sie können das Bild-Paar überspringen, wenn Sie keine Entscheidung treffen können.",
   elements: [
-    { type: "expression", name: "safe_intro", title: "Welches Bild wirkt eher sicher?" },
+    { type: "expression", name: "safe_intro", title: "Welches Bild wirkt eher sicher? Sie können das Bild-Paar überspringen, wenn Sie keine Entscheidung treffen können." },
     ...Array.from({ length: 10 }, (_, i) => ({
       type: "imagepicker",
       name: `safe_comparison_${i + 1}`,
@@ -136,7 +136,7 @@ const wealthyPage = {
   title: "Indikator 5/6: Wohlhabend",
   description: "Wählen Sie jeweils das Bild, das besser zur Beschreibung „Wohlhabend“ passt. Sie können das Bild-Paar überspringen, wenn Sie keine Entscheidung treffen können.",
   elements: [
-    { type: "expression", name: "wealthy_intro", title: "Welches Bild wirkt eher wohlhabend?" },
+    { type: "expression", name: "wealthy_intro", title: "Welches Bild wirkt eher wohlhabend? Sie können das Bild-Paar überspringen, wenn Sie keine Entscheidung treffen können." },
     ...Array.from({ length: 10 }, (_, i) => ({
       type: "imagepicker",
       name: `wealthy_comparison_${i + 1}`,
@@ -155,7 +155,7 @@ const livablePage = {
   title: "Indikator 6/6: Lebenswert",
   description: "Wählen Sie jeweils das Bild, das besser zur Beschreibung „Lebenswert“ passt. Sie können das Bild-Paar überspringen, wenn Sie keine Entscheidung treffen können.",
   elements: [
-    { type: "expression", name: "livable_intro", title: "Welches Bild wirkt eher lebenswert?" },
+    { type: "expression", name: "livable_intro", title: "Welches Bild wirkt eher lebenswert? Sie können das Bild-Paar überspringen, wenn Sie keine Entscheidung treffen können." },
     ...Array.from({ length: 10 }, (_, i) => ({
       type: "imagepicker",
       name: `livable_comparison_${i + 1}`,
