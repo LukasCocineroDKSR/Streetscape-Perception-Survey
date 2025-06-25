@@ -48,7 +48,7 @@ export default function App() {
     
     if (result.success) {
       console.log("Survey response saved successfully!");
-      alert("Thank you for completing the survey! Your responses have been saved.");
+      alert("Thank you for completing the survey! Löse den folgenden Survey Code unter https://www.surveycircle.com ein und erhalte durch SurveyCircle kostenlos Teilnehmer für deine Studie: 59AH-GT62-NP25-M4T4");
     } else {
       console.error("Failed to save survey response:", result.error);
       alert("There was an error saving your responses. Please try again.");
