@@ -48,7 +48,7 @@ export default function App() {
     
     if (result.success) {
       console.log("Survey response saved successfully!");
-      alert("Löse den folgenden Survey Code unter https://www.surveycircle.com ein und erhalte durch SurveyCircle kostenlos Teilnehmer für deine Studie: 59AH-GT62-NP25-M4T4. The following code gives you Karma that can be used to get free research participants at SurveySwap.io. Go to: https://surveyswap.io/sr/4XT3-YUDB-V1LW Or, alternatively, enter the code manually: 4XT3-YUDB-V1LW");
+      alert("Löse den folgenden Survey Code unter https://www.surveycircle.com ein und erhalte durch SurveyCircle kostenlos Teilnehmer für deine Studie: 59AH-GT62-NP25-M4T4. The following code gives you Karma that can be used to get free research participants at SurveySwap.io. Go to: https://surveyswap.io/sr/4XT3-YUDB-V1LW Or, alternatively, enter the code manually: 4XT3-YUDB-V1LW.");
     } else {
       console.error("Failed to save survey response:", result.error);
       alert("There was an error saving your responses. Please try again.");
