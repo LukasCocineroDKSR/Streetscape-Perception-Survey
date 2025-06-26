@@ -4,7 +4,7 @@ const generateQuestionImages = () => {
   const questionImages = {};
   const keys = ["beautiful", "boring", "depressing", "safe", "wealthy", "livable"];
   keys.forEach((key) => {
-    for (let i = 1; i <= 10; i++) {
+    for (let i = 1; i <= 20; i++) {
       questionImages[`${key}_comparison_${i}`] = getRandomImages(`${key}_comparison_${i}`, 2);
     }
   });
@@ -61,7 +61,7 @@ const beautifulPage = {
   description: "Wählen Sie jeweils das Bild, das besser zur Beschreibung „Schön“ passt. Sie können das Bild-Paar überspringen, wenn Sie keine Entscheidung treffen können.",
   elements: [
     { type: "expression", name: "beautiful_intro", title: "Welches Bild wirkt eher schön? Sie können das Bild-Paar überspringen, wenn Sie keine Entscheidung treffen können." },
-    ...Array.from({ length: 10 }, (_, i) => ({
+    ...Array.from({ length: 20 }, (_, i) => ({
       type: "imagepicker",
       name: `beautiful_comparison_${i + 1}`,
       title: " ",
@@ -80,7 +80,7 @@ const boringPage = {
   description: "Wählen Sie jeweils das Bild, das besser zur Beschreibung „Langweilig“ passt. Sie können das Bild-Paar überspringen, wenn Sie keine Entscheidung treffen können.",
   elements: [
     { type: "expression", name: "boring_intro", title: "Welches Bild wirkt eher langweilig? Sie können das Bild-Paar überspringen, wenn Sie keine Entscheidung treffen können." },
-    ...Array.from({ length: 10 }, (_, i) => ({
+    ...Array.from({ length: 20 }, (_, i) => ({
       type: "imagepicker",
       name: `boring_comparison_${i + 1}`,
       title: " ",
@@ -99,7 +99,7 @@ const depressingPage = {
   description: "Wählen Sie jeweils das Bild, das besser zur Beschreibung „Deprimierend“ passt. Sie können das Bild-Paar überspringen, wenn Sie keine Entscheidung treffen können.",
   elements: [
     { type: "expression", name: "depressing_intro", title: "Welches Bild wirkt eher deprimierend? Sie können das Bild-Paar überspringen, wenn Sie keine Entscheidung treffen können." },
-    ...Array.from({ length: 10 }, (_, i) => ({
+    ...Array.from({ length: 20 }, (_, i) => ({
       type: "imagepicker",
       name: `depressing_comparison_${i + 1}`,
       title: " ",
@@ -118,7 +118,7 @@ const safePage = {
   description: "Wählen Sie jeweils das Bild, das besser zur Beschreibung „Sicher“ passt. Sie können das Bild-Paar überspringen, wenn Sie keine Entscheidung treffen können.",
   elements: [
     { type: "expression", name: "safe_intro", title: "Welches Bild wirkt eher sicher? Sie können das Bild-Paar überspringen, wenn Sie keine Entscheidung treffen können." },
-    ...Array.from({ length: 10 }, (_, i) => ({
+    ...Array.from({ length: 20 }, (_, i) => ({
       type: "imagepicker",
       name: `safe_comparison_${i + 1}`,
       title: " ",
@@ -137,7 +137,7 @@ const wealthyPage = {
   description: "Wählen Sie jeweils das Bild, das besser zur Beschreibung „Wohlhabend“ passt. Sie können das Bild-Paar überspringen, wenn Sie keine Entscheidung treffen können.",
   elements: [
     { type: "expression", name: "wealthy_intro", title: "Welches Bild wirkt eher wohlhabend? Sie können das Bild-Paar überspringen, wenn Sie keine Entscheidung treffen können." },
-    ...Array.from({ length: 10 }, (_, i) => ({
+    ...Array.from({ length: 20 }, (_, i) => ({
       type: "imagepicker",
       name: `wealthy_comparison_${i + 1}`,
       title: " ",
@@ -156,7 +156,7 @@ const livablePage = {
   description: "Wählen Sie jeweils das Bild, das besser zur Beschreibung „Lebenswert“ passt. Sie können das Bild-Paar überspringen, wenn Sie keine Entscheidung treffen können.",
   elements: [
     { type: "expression", name: "livable_intro", title: "Welches Bild wirkt eher lebenswert? Sie können das Bild-Paar überspringen, wenn Sie keine Entscheidung treffen können." },
-    ...Array.from({ length: 10 }, (_, i) => ({
+    ...Array.from({ length: 20 }, (_, i) => ({
       type: "imagepicker",
       name: `livable_comparison_${i + 1}`,
       title: " ",
