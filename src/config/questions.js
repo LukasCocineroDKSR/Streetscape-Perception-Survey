@@ -29,12 +29,6 @@ export const demographicQuestions = [
     isRequired: True
   },
   {
-    name: "location",
-    title: "In welcher Stadt leben Sie?",
-    type: "text",
-    isRequired: True
-  },
-  {
     name: "income",
     title: "Wie hoch ist Ihr Haushaltsnettoeinkommen?",
     type: "radiogroup",
@@ -50,7 +44,20 @@ export const demographicQuestions = [
       "Bachelorabschluss", "Masterabschluss", "Promotion", "Sonstiges"
     ],
     isRequired: True
-  }
+  },
+{
+  name: "city_type",
+  title: "Wo leben Sie momentan?",
+  type: "radiogroup",
+  choices: [
+    "Großstadt (ab 100.000 Einwohner:innen)",
+    "Mittelstadt (20.000–100.000 Einwohner:innen)",
+    "Kleinstadt (5.000–20.000 Einwohner:innen)",
+    "Dorf oder ländlicher Raum (unter 5.000 Einwohner:innen)",
+    "Sonstiges"
+  ],
+  isRequired: true
+}
 ];
 
 // === Einzelne Indikator-Seiten ===
