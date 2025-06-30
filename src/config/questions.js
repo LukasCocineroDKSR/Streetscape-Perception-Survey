@@ -19,21 +19,21 @@ export const demographicQuestions = [
     title: "Wie alt sind Sie?",
     type: "radiogroup",
     choices: ["Unter 18", "18–24", "25–34", "35–44", "45–54", "55–64", "65 oder älter"],
-    isRequired: True
+    isRequired: true
   },
   {
     name: "gender",
     title: "Was ist Ihr Geschlecht?",
     type: "radiogroup",
     choices: ["weiblich", "männlich", "divers"],
-    isRequired: True
+    isRequired: true
   },
   {
     name: "income",
     title: "Wie hoch ist Ihr Haushaltsnettoeinkommen?",
     type: "radiogroup",
     choices: ["Unter 25.000 €", "25.000 € – 50.000 €", "50.000 € – 75.000 €", "75.000 € – 100.000 €", "Über 100.000 €"],
-    isRequired: True
+    isRequired: true
   },
   {
     name: "education",
@@ -43,7 +43,7 @@ export const demographicQuestions = [
       "Kein Schulabschluss", "Haupt-/Realschule", "Abitur", "Berufsausbildung",
       "Bachelorabschluss", "Masterabschluss", "Promotion", "Sonstiges"
     ],
-    isRequired: True
+    isRequired: true
   },
 {
   name: "city_type",
